@@ -10,10 +10,10 @@ pipeline {
       parallel {
         stage('Test') {
           steps {
-            bat 'npm validate'
+            bat 'npm run validate'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             echo 'Hello from parallel'
           }
