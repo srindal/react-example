@@ -7,8 +7,17 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        bat 'npm validate'
+      parallel {
+        stage('Test') {
+          steps {
+            bat 'npm validate'
+          }
+        }
+        stage('') {
+          steps {
+            echo 'Hello from parallel'
+          }
+        }
       }
     }
     stage('Deploy') {
